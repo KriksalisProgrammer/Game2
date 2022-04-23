@@ -67,6 +67,14 @@ public class MainManager : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
+            if(Input.GetKeyDown(KeyCode.Escape))
+            {
+#if UNITY_EDITOR
+                UnityEditor.EditorApplication.ExitPlaymode();
+#else
+        Application.Quit();
+#endif
+            }
         }
     }
 
