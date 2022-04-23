@@ -35,17 +35,21 @@ namespace Assets.Scripts
             save.Name = Name;
             save.RecordScore = Record;
             string json = JsonUtility.ToJson(save);
-            File.WriteAllText(Application.persistentDataPath + "data.json", json);
+            File.WriteAllText(Application.persistentDataPath + "data1.json", json);
+            Debug.Log("Save");
         }
         public void LoadData()
         {
-            string path = Application.persistentDataPath + "data.json";
-            if(File.Exists(path))
+            
+            string path = Application.persistentDataPath + "data1.json";
+            if (File.Exists(path))
             {
-                string json= File.ReadAllText(path);
-                Save data = JsonUtility.FromJson<Save>(path);
+                string json= File.ReadAllText(path); 
+                Save data = JsonUtility.FromJson<Save>(json);
+                Debug.Log("Load");
                 Name = data.Name;
                 Record = data.RecordScore;
+                
             }
         }
 
